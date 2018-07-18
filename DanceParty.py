@@ -1,7 +1,10 @@
 import os
 import time
+import mysql.connector
+import mysql
 
-query = "select u1.user_story_id,"
+query = ("SELECT *  FROM tu.agile_central "
+                 "WHERE id='US1234'")
 
 print("starting dance party")
 time.sleep(2)
@@ -13,7 +16,35 @@ print("Ready to party!")
 time.sleep(2)
 
 
-while 1=1:
+
+while 1==1:
+
+    cnx = mysql.connector.connect(host='localhost', user='pi', passwd='martyweb', db='tu')
+    print('Checking status')
+    time.sleep(1)
+    cursor = cnx.cursor()
+
+    rows=''
+    cursor.execute(query)
+    rows = cursor.fetchall()
+    cursor.close()
+    cnx.close()    
+    
+    for x in rows:
+         if(x[1] == 'Complete'):
+             print('Party!!!!!!!!!!!!!!!!!')
+             os.system("aplay DJ\ Airhorn\ Sound\ Effect.wav")
+             time.sleep(100)
+             break
+         else:
+             print("Status is " + x[1])
+         
+         
+         
+    time.sleep(2)
+
+
+
 
 	#JDBC query
 	#
@@ -26,7 +57,5 @@ while 1=1:
 #and u2.user_story_status != 'Accepted'
 #limit 10
 
-	print("Are people here yet?")
-	os.system("aplay /home/pi/Downloads/DJ\ Airhorn\ Sound\ Effect.wav")
-	sleep(5)
+	
 
