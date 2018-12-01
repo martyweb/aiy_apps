@@ -17,8 +17,10 @@ os.chdir(path)
 def main():
     while True:
             print('Press the button to PARTY!')
+            led.set_state(aiy.voicehat.LED.ON)
             button.wait_for_press()
             print('Boom')
+            led.set_state(aiy.voicehat.LED.BLINK)
             os.system("aplay DJ\ Airhorn\ Sound\ Effect.wav")
             time.sleep(1)
             
