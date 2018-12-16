@@ -1,7 +1,14 @@
+#!/usr/bin/env python3
+
+#-----------------------
+#Queries data and plays horn if status changes
+#-----------------------
+
 import os
 import time
 import mysql.connector
 import mysql
+
 
 query = ("SELECT *  FROM tu.agile_central "
                  "WHERE id='US1234'")
@@ -34,7 +41,7 @@ while 1==1:
          if(x[1] == 'Complete'):
              print('Party!!!!!!!!!!!!!!!!!')
              os.system("aplay DJ\ Airhorn\ Sound\ Effect.wav")
-             time.sleep(100)
+             time.sleep(50)
              break
          else:
              print("Status is " + x[1])

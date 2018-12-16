@@ -25,8 +25,6 @@ import mysql
 
 def main():
 
-    
-
     recognizer = aiy.cloudspeech.get_recognizer()
     recognizer.expect_phrase('turn off the light')
     recognizer.expect_phrase('turn on the light')
